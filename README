@@ -1,0 +1,9 @@
+1. composer create-project laravel/laravel demo-laravel-redis
+2. enable redis in OSPanel
+3. go to config/database.php and change
+    'client' => env('REDIS_CLIENT', 'phpredis'),
+        =>  'client' => env('REDIS_CLIENT', 'predis'),
+    'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+        => 'prefix' => env('REDIS_PREFIX', ''),
+4. php artisan make:controller RedisController
+5. go to routes/web.php and create route to RedisController::index
